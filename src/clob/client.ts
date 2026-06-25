@@ -1,18 +1,26 @@
 import { ClobOrder } from './signer.js';
 
 export interface Market {
-  id: string;
+  condition_id: string;
+  question_id: string;
   question: string;
-  conditionId: string;
-  slug: string;
-  resolutionSource: string;
-  endResolutionPaperDueDate: string;
-  marketType: string;
+  description: string;
+  market_slug: string;
   active: boolean;
-  rewards: {
-    creationMinSize: number;
-    creationMinPrice: number;
-  };
+  closed: boolean;
+  archived: boolean;
+  accepting_orders: boolean;
+  tokens: {
+    token_id: string;
+    outcome: string;
+    price: number;
+    winner: boolean;
+  }[];
+  neg_risk: boolean;
+  neg_risk_market_id?: string;
+  enable_order_book: boolean;
+  minimum_order_size: number;
+  minimum_tick_size: number;
 }
 
 export interface BookLevel {
